@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+	<meta charset='utf-8'/>
+	<meta name='viewport' content='width=device-width,initial-scale=1'/>
+	<title>Day 1 — Семантика</title>
+	<meta name='description' content='Учебный проект: верстка и семантика'/>
+	<link rel='stylesheet' href='css/style.css'/>
+</head>
+<body>
+<header aria-label='Основная шапка сайта'>
+	<div class='container header__row'>
+		<a class='logo' href='/'>Brand</a>
+		<nav aria-label='Главная навигация'>
+			<ul class='nav'>
+				<li><a href='#features'>Преимущества</a></li>
+				<li><a href='#articles'>Статьи</a></li>
+				<li><a href='#contact'>Контакты</a></li>
+				<li><a class='btn btn--primary' href='#cta'>Заказать</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<main id='main'>
+	<section id='hero' class='hero' aria-label='Вступительный блок'>
+		<div class='container'>
+			<h1>Натуральный уход за кожей</h1>
+			<p>Короткий подзаголовок на 1–2 строки. Польза, ценность, действие.</p>
+			<a class='btn btn--primary' href='#cta'>Попробовать</a>
+		</div>
+	</section>
+
+	<section id='features' class='features' aria-label='Преимущества'>
+		<div class='container'>
+			<h2>Почему выбирают нас</h2>
+			<ul class='features__list'>
+				<li class='feature'>
+					<h3>Натуральный состав</h3>
+					<p>Описываем один ключевой плюс.</p>
+				</li>
+				<li class='feature'>
+					<h3>Заметный эффект</h3>
+					<p>Еще один плюс в одном абзаце.</p>
+				</li>
+				<li class='feature'>
+					<h3>Быстрая доставка</h3>
+					<p>И третий плюс.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<aside class='promo' aria-label='Промо блок'>
+		<div class='container'>
+			<p><strong>Скидка -20%</strong> до конца недели</p>
+		</div>
+	</aside>
+
+	<section id='articles' class='articles' aria-label='Статьи'>
+		<div class='container'>
+			<h2>Полезные материалы</h2>
+			<article class='post'>
+				<header><h3>Как работает ретинол</h3></header>
+				<p>Самостоятельная статья/пост — законченная единица контента.</p>
+				<footer><a href='#'>Читать далее</a></footer>
+			</article>
+			<article class='post'>
+				<header><h3>Руководство по уходу 35+</h3></header>
+				<p>Еще одна самостоятельная статья.</p>
+				<footer><a href='#'>Читать далее</a></footer>
+			</article>
+		</div>
+	</section>
+</main>
+
+<footer id='contact' aria-label='Подвал'>
+	<div class='container footer__row'>
+		<small>© 2025 Brand</small>
+		<nav aria-label='Навигация в подвале'>
+			<ul class='footer-nav'>
+				<li><a href='#'>Политика</a></li>
+				<li><a href='#'>Условия</a></li>
+				<li><a href='#cta'>Купить</a></li>
+			</ul>
+		</nav>
+	</div>
+</footer>
+</body>
+</html>
