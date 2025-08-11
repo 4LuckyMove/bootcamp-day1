@@ -56,18 +56,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0;
+    padding: 16px;
+    gap: 15px;
 }
 
 .logo {
     font-weight: 800;
     letter-spacing: 0.5px;
+    font-size: 24px;
 }
 
 .nav {
     display: flex;
     align-items: center;
+    justify-content: end;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .nav a {
