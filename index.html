@@ -17,7 +17,15 @@
 <header aria-label='Основная шапка сайта'>
 	<div class='container header__row'>
 		<a class='logo' href='/'>Brand</a>
-		<nav aria-label='Главная навигация'>
+		<button
+			class='menu-toggle'
+			aria-label='Открыть меню'
+			aria-expanded='false'
+			aria-controls='primary-nav'
+		>
+			☰
+		</button>
+		<nav id="primary-nav" aria-label='Главная навигация'>
 			<ul class='nav'>
 				<li><a href='#features'>Преимущества</a></li>
 				<li><a href='#articles'>Статьи</a></li>
@@ -25,7 +33,6 @@
 				<li><a class='btn btn--primary' href='#cta'>Заказать</a></li>
 			</ul>
 		</nav>
-		<button aria-label='Открыть меню'></button>
 	</div>
 </header>
 

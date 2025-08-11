@@ -45,6 +45,15 @@ h1 {
     font-size: clamp(28px, 3.2vw, 40px);
 }
 
+:focus-visible {
+    outline: 2px solid #0ea5e9;
+    outline-offset: 2px;
+}
+
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+    border-radius: 8px;
+}
+
 .container {
     max-width: var(--container);
     margin: 0 auto;
@@ -85,6 +94,24 @@ header {
 
 .nav a:hover {
     background: var(--bg-soft);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    #primary-nav {
+        display: none;
+    }
 }
 
 .header__row button {
