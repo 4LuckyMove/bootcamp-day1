@@ -4,7 +4,13 @@
 	<meta charset='utf-8'/>
 	<meta name='viewport' content='width=device-width,initial-scale=1'/>
 	<title>Day 1 — Семантика</title>
-	<meta name='description' content='Учебный проект: верстка и семантика'/>
+	<link
+		type='image/png' sizes='100x100' rel='icon'
+		href='https://img.icons8.com/papercut/100/bookmark.png'
+	>
+	<meta property='og:title' content='Frontend Bootcamp — Day 1'/>
+	<meta property='og:description' content='Учебный проект: верстка и семантика'/>
+	<meta property='og:type' content='website'/>
 	<link rel='stylesheet' href='css/style.css'/>
 </head>
 <body>
@@ -19,10 +25,11 @@
 				<li><a class='btn btn--primary' href='#cta'>Заказать</a></li>
 			</ul>
 		</nav>
+		<button aria-label='Открыть меню'></button>
 	</div>
 </header>
 
-<main id='main'>
+<main id='main' aria-current='page'>
 	<section id='hero' class='hero' aria-label='Вступительный блок'>
 		<div class='container'>
 			<h1>Натуральный уход за кожей</h1>

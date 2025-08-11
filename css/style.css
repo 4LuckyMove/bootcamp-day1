@@ -41,6 +41,10 @@ body {
     line-height: 1.6;
 }
 
+h1 {
+    font-size: clamp(28px, 3.2vw, 40px);
+}
+
 .container {
     max-width: var(--container);
     margin: 0 auto;
@@ -62,7 +66,7 @@ header {
 
 .logo {
     font-weight: 800;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     font-size: 24px;
 }
 
@@ -81,6 +85,10 @@ header {
 
 .nav a:hover {
     background: var(--bg-soft);
+}
+
+.header__row button {
+    display: none;
 }
 
 .btn {
@@ -175,6 +183,11 @@ footer {
     gap: 16px;
 }
 
+.articles a:focus-visible, .articles a:hover {
+    text-decoration: underline;
+}
+
+
 /* брейкпоинты */
 @media (max-width: 992px) {
     .features__list {
@@ -205,7 +218,11 @@ footer {
         display: none;
     }
 
-    .logo::after {
+    .header__row button {
+        display: block;
+    }
+
+    .header__row button::after {
         content: "☰";
         font-size: 20px;
         margin-left: 12px;
