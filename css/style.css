@@ -453,3 +453,5 @@ header {
 
     /* запрет прокрутки при открытом меню уже есть через body.menu-open */
 }
+
+.btn:focus-visible { outline-offset: 3px; }
