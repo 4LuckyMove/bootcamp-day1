@@ -413,3 +413,43 @@ dialog {
         }
     }
 }
+
+/* чтобы выпадающее меню позиционировалось под шапкой */
+header {
+    position: relative;
+    z-index: 10;
+}
+
+/* мобильный режим */
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    /* скрываем именно обёртку навигации */
+    #primary-nav {
+        display: none;
+        position: absolute;
+        top: 100%; /* сразу под шапкой */
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid #e2e8f0;
+        box-shadow: 0 8px 24px rgba(2, 6, 23, .08);
+    }
+
+    /* при открытии показываем */
+    #primary-nav.is-open {
+        display: block;
+    }
+
+    /* делаем вертикальный список пунктов */
+    #primary-nav .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    /* запрет прокрутки при открытом меню уже есть через body.menu-open */
+}
