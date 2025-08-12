@@ -254,13 +254,6 @@ footer {
     .header__row button {
         display: block;
     }
-
-    .header__row button::after {
-        content: "☰";
-        font-size: 20px;
-        margin-left: 12px;
-        vertical-align: middle;
-    }
 }
 
 .cards {
