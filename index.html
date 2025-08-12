@@ -139,6 +139,27 @@
 			></li>
 		</ul>
 	</section>
+
+	<section style='margin-top: 1rem; margin-bottom: 1rem; padding: 0 16px;'>
+		<a class='btn btn--primary' href='#cta' id='open-modal'>Оставить заявку</a>
+	</section>
+
+	<dialog id='contact-modal' aria-label='Форма заявки'>
+		<form method='dialog' class='modal'>
+			<header class='modal__header'>
+				<h3>Оставить заявку</h3>
+				<button type='button' class='modal__close' aria-label='Закрыть'>×</button>
+			</header>
+			<div class='modal__content'>
+				<label>Имя <input type='text' required></label>
+				<label>Телефон <input type='tel' required></label>
+			</div>
+			<footer class='modal__footer'>
+				<button value='cancel' class='btn'>Отмена</button>
+				<button value='submit' class='btn btn--primary'>Отправить</button>
+			</footer>
+		</form>
+	</dialog>
 </main>
 
 <footer id='contact' aria-label='Подвал'>

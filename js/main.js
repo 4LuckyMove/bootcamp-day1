@@ -26,3 +26,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (e.target.closest('a')) closeMenu();
 	});
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+	const openBtn = document.getElementById('open-modal');
+	const dialog = document.getElementById('contact-modal');
+	const closeBtn = dialog?.querySelector('.modal__close');
+
+	if (openBtn && dialog) {
+		openBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			dialog.showModal();
+		});
+	}
+	if (closeBtn && dialog) {
+		closeBtn.addEventListener('click', () => dialog.close());
+	}
+	// Закрытие по клику на backdrop
+	if (dialog) {
+		dialog.addEventListener('click', (e) => {
+			const rect = dialog.getBoundingClientRect();
+			const inDialog = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+			if (!inDialog) dialog.close();
+		});
+		dialog.addEventListener('cancel', (e) => {
+			e.preventDefault();
+			dialog.close();
+		});
+	}
+});
