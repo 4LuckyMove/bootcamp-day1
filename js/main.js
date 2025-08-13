@@ -1,4 +1,7 @@
 import {getPictures} from './api.js';
+import {
+	renderSkeletons, clearList, appendPictures, showState, hideState
+} from './galleryView.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const toggle = document.querySelector('.menu-toggle');
