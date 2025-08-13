@@ -7,7 +7,7 @@
 		name='description'
 		content='Учебный мини‑лендинг: семантика HTML, адаптивный CSS Grid, доступная модалка и мобильное меню. Проект для портфолио фронтенд‑разработчика.'
 	>
-	<meta name="robots" content="index,follow">
+	<meta name='robots' content='index,follow'>
 	<title>Day 1 — Семантика</title>
 	<link rel='canonical' href='https://4luckymove.github.io/bootcamp-day1/'>
 	<link
@@ -117,38 +117,18 @@
 
 	<section class='gallery container' aria-label='Галерея'>
 		<h2>Галерея</h2>
-		<ul class='gallery__grid'>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?1'
-				alt='Пример 1'
-				loading='lazy'
-			></li>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?2'
-				alt='Пример 2'
-				loading='lazy'
-			></li>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?3'
-				alt='Пример 3'
-				loading='lazy'
-			></li>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?4'
-				alt='Пример 4'
-				loading='lazy'
-			></li>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?5'
-				alt='Пример 5'
-				loading='lazy'
-			></li>
-			<li class='gallery__item'><img
-				src='https://picsum.photos/520/360?6'
-				alt='Пример 6'
-				loading='lazy'
-			></li>
-		</ul>
+
+		<div class='gallery__controls'>
+			<button class='btn' id='reload-gallery' aria-live='polite'>Перезагрузить</button>
+		</div>
+
+		<ul class='gallery__grid' id='gallery-list' aria-live='polite'></ul>
+
+		<div class='gallery__state' id='gallery-state' hidden></div>
+
+		<div class='gallery__actions'>
+			<button class='btn btn--primary' id='load-more'>Загрузить ещё</button>
+		</div>
 	</section>
 
 	<section style='margin-top: 1rem; margin-bottom: 1rem; padding: 0 16px;'>
@@ -186,7 +166,7 @@
 	</div>
 </footer>
 
-<script src="js/api.js" defer></script>
+<script src='js/api.js' defer></script>
 <script src='js/main.js' defer></script>
 </body>
 </html>
