@@ -67,6 +67,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	const reloadBtn = document.getElementById('reload-gallery');
 	const sentinel = document.getElementById('gallery-sentinel');
 
+	function setBusy(el, isBusy) {
+		if (!el) return;
+		if (isBusy) {
+			el.setAttribute('aria-busy', 'true');
+			el.disabled = true;              // чтобы нельзя было кликнуть
+		} else {
+			el.removeAttribute('aria-busy');
+			el.disabled = false;
+		}
+	}
+
+	function setAriaDisabled(el, disabled) {
+		if (!el) return;
+		if (disabled) {
+			el.setAttribute('aria-disabled', 'true');
+			el.disabled = true;              // синхронизируем с нативным disabled
+		} else {
+			el.removeAttribute('aria-disabled');
+			el.disabled = false;
+		}
+	}
+
 	if (sentinel) {
 		const io = new IntersectionObserver((entries) => {
 			const entry = entries[0];
@@ -76,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}, {rootMargin: '200px 0px 400px 0px'});
 		io.observe(sentinel);
 	}
-
 
 	if (!list || !loadMoreBtn || !stateBox) return;
 
@@ -88,7 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	async function loadPage(p = 1, {replace = false} = {}) {
 		if (loading || reachedEnd) return;
 		loading = true;
-		loadMoreBtn.disabled = true;
+		setBusy(loadMoreBtn, true);          // 🔹 показываем, что «Загрузить ещё» занята
+		setBusy(reloadBtn, true);            // 🔹 и «Перезагрузить» тоже занята
 		showState(stateBox, 'Загрузка...', 'info');
 
 		if (replace) clearList(list);
@@ -109,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					showState(stateBox, 'Пока нет элементов. Попробуйте перезагрузить позже.', 'info');
 				} else {
 					showState(stateBox, 'Больше элементов нет.', 'info');
-					reachedEnd = true;
+					reachedEnd = true;                      // 🔹 ставим флаг конца
 				}
 			} else {
 				hideState(stateBox);
@@ -122,6 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			loadMoreBtn.disabled = reachedEnd;
 			loading = false;
 		}
+		setBusy(loadMoreBtn, false);         // 🔹 убираем «занято»
+		setBusy(reloadBtn, false);
+		loading = false;
+
+		// если дошли до конца — блокируем кнопку «Загрузить ещё»
+		if (reachedEnd) {
+			setAriaDisabled(loadMoreBtn, true);  // 🔹 теперь кнопка "официально" недоступна
+		} else {
+			setAriaDisabled(loadMoreBtn, false);
+		}
 	}
 
 	// Инициализация
@@ -131,7 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	loadMoreBtn.addEventListener('click', () => loadPage(page + 1));
 	reloadBtn?.addEventListener('click', () => {
 		reachedEnd = false;
-		loadMoreBtn.disabled = false;
-		loadPage(1, {replace: true});
+		setAriaDisabled(loadMoreBtn, false);  // снова доступна
+		clearList(list);                      // очищаем галерею
+		hideState(stateBox);                   // убираем сообщение
+		loadPage(1, {replace: true});        // загружаем первую страницу заново
 	});
 });

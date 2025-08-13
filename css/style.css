@@ -502,3 +502,9 @@ header {
 .btn:focus-visible {
     outline-offset: 3px;
 }
+
+button[aria-disabled="true"],
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
