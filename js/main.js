@@ -65,6 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	const loadMoreBtn = document.getElementById('load-more');
 	const stateBox = document.getElementById('gallery-state');
 	const reloadBtn = document.getElementById('reload-gallery');
+	const sentinel = document.getElementById('gallery-sentinel');
+
+	if (sentinel) {
+		const io = new IntersectionObserver((entries) => {
+			const entry = entries[0];
+			if (entry.isIntersecting && !loading && !reachedEnd) {
+				loadPage(page + 1);
+			}
+		}, {rootMargin: '200px 0px 400px 0px'});
+		io.observe(sentinel);
+	}
+
 
 	if (!list || !loadMoreBtn || !stateBox) return;
 
